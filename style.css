@@ -5,9 +5,6 @@
 }
 
 body{
-    /* transform:translateY(-50%);
-    transform:translateX(-50%); */
-
     background-color:#eee;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     font-size:14px;
@@ -31,26 +28,47 @@ body{
 .section{
     margin:1em;
     padding:1em;
+    background-color:white;
+}
+
+.section > h2{
+    font-size:16px;
+}
+
+.rounded{
+    border-radius:10px;
 }
 
 .sample-1{
     border:5px solid transparent;
 
     animation-name:sample-1;
-    animation-duration:1s;
+    animation-duration:3s;
     animation-iteration-count:infinite;
-    /* animation-direction: alternate-reverse; */
 }
+
+.sample-2{
+    border:5px solid transparent;
+
+    animation-name:sample-2;
+    animation-duration:3s;
+    animation-iteration-count:infinite;
+}
+
+@keyframes sample-2{
+    0%{border:5px solid #006989;}
+    50%{border:5px double #006989;}
+    100%{border:5px solid #006989;}
+}
+
 
 @keyframes sample-1{
     0%{border-color:#eaebed}
-    /* 50%{border-color:#a3bac3} */
     50%{border-color:#006989}
-    /* 75%{border-color:#a3bac3}*/
     100%{border-color:#eaebed}
 }
 
-
+/* Using border sides */
 .sample-3{
     border:5px solid transparent;
 
@@ -58,32 +76,53 @@ body{
     animation-duration:2.5s;
     animation-fill-mode:none;
     animation-iteration-count:infinite;
-    /* animation-fill-mode:forwards; */
 }
 
 @keyframes sample-3{
-    15%{
-        border-top-color: #006989;
-        /* border-right-color:transparent;
-        border-bottom-color:transparent;
-        border-left-color:transparent; */
-    }
-    40%{
-        /* border-top-color: #006989; */
-        border-right-color:#006989;
-        /* border-bottom-color:transparent;
-        border-left-color:transparent; */
-    }
-    60%{
-        /* border-top-color: transparent;
-        border-right-color:#006989; */
-        border-bottom-color:#006989;
-        /* border-left-color:transparent; */
-    }
-    75%{
-        /* border-top-color: transparent;
-        border-right-color:transparent;
-        border-bottom-color:#006989; */
-        border-left-color:#006090;
-    }
+    15%{border-top-color: #006989;}
+    40%{border-right-color:#006989;}
+    60%{border-bottom-color:#006989;}
+    75%{border-left-color:#006989;}
+}
+
+/* Using border images */
+.sample-4{
+    border:2px solid transparent;
+    border-image-slice:1;
+    border-image-repeat:round;
+
+    animation-name:sample-4;
+    animation-duration:.5s;
+    animation-iteration-count:infinite;
+}
+
+@keyframes sample-4{
+    0%{border-image-source:url(./res/frame-1.png);}
+    25%{border-image-source:url(./res/frame-2.png);}
+    50%{border-image-source:url(./res/frame-3.png);}
+    75%{border-image-source:url(./res/frame-4.png);}
+    100%{border-image-source:url(./res/frame-1.png);}
+}
+
+/* Using border images */
+.sample-5{
+    border:5px solid transparent;
+    background-image: linear-gradient( white, white), repeating-linear-gradient(45deg, white 0px 10px, #006989 10px 20px);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+
+    animation-name:sample-5;
+    animation-duration:.6s;
+    animation-iteration-count:infinite;
+}
+
+@keyframes sample-5{
+    0%{background-image: linear-gradient( white, white), repeating-linear-gradient(45deg, white 0px 10px, #006989 10px 20px);}
+    33.3%{background-image: linear-gradient( white, white), repeating-linear-gradient(45deg, white 5px 15px,#006989 15px 25px);}
+    66.6%{background-image: linear-gradient( white, white), repeating-linear-gradient(45deg, white 10px 20px, #006989 20px 30px);}
+    100%{background-image: linear-gradient( white, white), repeating-linear-gradient(45deg, white 0px 10px, #006989 10px 20px);}
+
+    /* 0%{background-position:0% 0%;}
+    50%{background-position:0% 50%;}
+    100%{background-position:0% 100%;} */
 }
