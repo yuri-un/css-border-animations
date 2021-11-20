@@ -23,6 +23,7 @@ body{
 
     min-width:350px;
     max-width:750px;
+    padding-bottom: 2em;
 }
 
 .section{
@@ -121,8 +122,81 @@ body{
     33.3%{background-image: linear-gradient( white, white), repeating-linear-gradient(45deg, white 5px 15px,#006989 15px 25px);}
     66.6%{background-image: linear-gradient( white, white), repeating-linear-gradient(45deg, white 10px 20px, #006989 20px 30px);}
     100%{background-image: linear-gradient( white, white), repeating-linear-gradient(45deg, white 0px 10px, #006989 10px 20px);}
+}
 
-    /* 0%{background-position:0% 0%;}
-    50%{background-position:0% 50%;}
-    100%{background-position:0% 100%;} */
+.sample-6{
+    background-image:url(./clouds.svg);
+    background-repeat:repeat-x;
+    background-position:center top; 
+    background-size:contain;
+
+    padding-top:80px;
+
+    /* Outline is better suited with SVG BG than border */
+    outline:5px solid #006980;
+    outline-offset:-1px;
+}
+
+.sample-7{
+    /* position:relative; */
+    background-image:linear-gradient(30deg, #dde7ee, #396b89, #81a5ba, #323456, #dde7ee),
+    linear-gradient(#dde7ee, #396b89);
+    background-repeat:repeat-x;
+    background-size:100% 100%; 
+    border:1px solid #006980;
+
+    animation-name:div-animation;
+    animation-duration:10s;
+    animation-iteration-count:infinite;
+
+}
+
+@keyframes div-animation{
+    0%{background-size:100% 250%;}
+    50%{background-size:300% 150%;}
+    100%{background-size:100% 250%;}
+}
+
+.sample-7 > .inner{
+    position: relative;
+    background-color:white;
+    border:1px solid #006980;
+
+    padding:1em;
+}
+
+.sample-8{
+    border:1px solid transparent;
+    outline: 2px solid #006989;
+    outline-offset:1px;
+
+    animation-name:outline-animation;
+    animation-duration:1.2s;
+    animation-iteration-count:infinite;
+    animation-fill-mode:forwards;
+}
+
+@keyframes outline-animation{
+    0%{outline-style:dotted;
+        outline-offset:1px;}
+    50%{outline-style:dashed;
+        outline-offset:7px;
+        border-color:#006989;}
+    100%{outline-style:dotted;
+        outline-offset:1px;}
+}
+
+.sample-9{
+    /* border:1px solid #006989; */
+    box-shadow: 0px 0px 10px 3px #006989;
+
+    animation-name:shadow-animation;
+    animation-duration:1.2s;
+    animation-iteration-count:infinite;
+}
+
+@keyframes shadow-animation{
+    0%{box-shadow:0px 0px 10px 0px #006989}
+    50%{box-shadow:0px 0px 10px 4px #006989;}
+    100%{box-shadow:0px 0px 10px 0px #006989}
 }
