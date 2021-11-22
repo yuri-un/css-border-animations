@@ -6,7 +6,7 @@
 
 body{
     background-color:#eee;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
     font-size:14px;
 }
 
@@ -36,50 +36,55 @@ body{
     font-size:16px;
 }
 
+.section > p{
+    padding:5px 0;
+}
+
 .rounded{
     border-radius:10px;
 }
 
+/* Border color animation */
 .sample-1{
     border:5px solid transparent;
 
-    animation-name:sample-1;
+    animation-name:color-animation;
     animation-duration:3s;
     animation-iteration-count:infinite;
 }
 
-.sample-2{
-    border:5px solid transparent;
-
-    animation-name:sample-2;
-    animation-duration:3s;
-    animation-iteration-count:infinite;
-}
-
-@keyframes sample-2{
-    0%{border:5px solid #006989;}
-    50%{border:5px double #006989;}
-    100%{border:5px solid #006989;}
-}
-
-
-@keyframes sample-1{
+@keyframes color-animation{
     0%{border-color:#eaebed}
     50%{border-color:#006989}
     100%{border-color:#eaebed}
+}
+
+/* Border style animation */
+.sample-2{
+    border:5px solid transparent;
+
+    animation-name:style-animation;
+    animation-duration:3s;
+    animation-iteration-count:infinite;
+}
+
+@keyframes style-animation{
+    0%{border:5px solid #006989;}
+    50%{border:5px double #006989;}
+    100%{border:5px solid #006989;}
 }
 
 /* Using border sides */
 .sample-3{
     border:5px solid transparent;
 
-    animation-name:sample-3;
+    animation-name:border-side-animation;
     animation-duration:2.5s;
     animation-fill-mode:none;
     animation-iteration-count:infinite;
 }
 
-@keyframes sample-3{
+@keyframes border-side-animation{
     15%{border-top-color: #006989;}
     40%{border-right-color:#006989;}
     60%{border-bottom-color:#006989;}
@@ -88,57 +93,60 @@ body{
 
 /* Using border images */
 .sample-4{
-    border:2px solid transparent;
-    border-image-slice:1;
+    border:6px solid transparent;
+    border-image-slice:3;
     border-image-repeat:round;
 
-    animation-name:sample-4;
+    animation-name:border-image-animation;
     animation-duration:.5s;
     animation-iteration-count:infinite;
 }
 
-@keyframes sample-4{
-    0%{border-image-source:url(./res/frame-1.png);}
-    25%{border-image-source:url(./res/frame-2.png);}
-    50%{border-image-source:url(./res/frame-3.png);}
-    75%{border-image-source:url(./res/frame-4.png);}
-    100%{border-image-source:url(./res/frame-1.png);}
+@keyframes border-image-animation{
+    0%{border-image-source:url(./res/fig-frame-1.png);}
+    16.7%{border-image-source:url(./res/fig-frame-2.png);}
+    33.4%{border-image-source:url(./res/fig-frame-3.png);}
+    50.1%{border-image-source:url(./res/fig-frame-4.png);}
+    66.8%{border-image-source:url(./res/fig-frame-5.png);}
+    80%{border-image-source:url(./res/fig-frame-6.png);}
+    100%{border-image-source:url(./res/fig-frame-1.png);}
 }
 
-/* Using border images */
+/* Using background images */
 .sample-5{
     border:5px solid transparent;
     background-image: linear-gradient( white, white), repeating-linear-gradient(45deg, white 0px 10px, #006989 10px 20px);
     background-origin: border-box;
     background-clip: padding-box, border-box;
 
-    animation-name:sample-5;
+    animation-name:bg-image-animation;
     animation-duration:.6s;
     animation-iteration-count:infinite;
 }
 
-@keyframes sample-5{
+@keyframes bg-image-animation{
     0%{background-image: linear-gradient( white, white), repeating-linear-gradient(45deg, white 0px 10px, #006989 10px 20px);}
     33.3%{background-image: linear-gradient( white, white), repeating-linear-gradient(45deg, white 5px 15px,#006989 15px 25px);}
     66.6%{background-image: linear-gradient( white, white), repeating-linear-gradient(45deg, white 10px 20px, #006989 20px 30px);}
     100%{background-image: linear-gradient( white, white), repeating-linear-gradient(45deg, white 0px 10px, #006989 10px 20px);}
 }
 
+/* Using SVG */
 .sample-6{
-    background-image:url(./clouds.svg);
+    background-image:url(./res/clouds.svg);
     background-repeat:repeat-x;
-    background-position:center top; 
+    background-position:center top;
     background-size:contain;
 
     padding-top:80px;
 
     /* Outline is better suited with SVG BG than border */
-    outline:5px solid #006980;
+    outline:5px solid #396B89;
     outline-offset:-1px;
 }
 
+/* Using nested Divs */
 .sample-7{
-    /* position:relative; */
     background-image:linear-gradient(30deg, #dde7ee, #396b89, #81a5ba, #323456, #dde7ee),
     linear-gradient(#dde7ee, #396b89);
     background-repeat:repeat-x;
@@ -151,20 +159,21 @@ body{
 
 }
 
+.sample-7 > .inner{
+    position: relative;
+    background-color:white;
+    border:1px solid #006980;
+    
+    padding:1em;
+}
+
 @keyframes div-animation{
     0%{background-size:100% 250%;}
     50%{background-size:300% 150%;}
     100%{background-size:100% 250%;}
 }
 
-.sample-7 > .inner{
-    position: relative;
-    background-color:white;
-    border:1px solid #006980;
-
-    padding:1em;
-}
-
+/* Using Outline style */
 .sample-8{
     border:1px solid transparent;
     outline: 2px solid #006989;
@@ -187,7 +196,6 @@ body{
 }
 
 .sample-9{
-    /* border:1px solid #006989; */
     box-shadow: 0px 0px 10px 3px #006989;
 
     animation-name:shadow-animation;
