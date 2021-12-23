@@ -32,16 +32,21 @@ body{
     background-color:white;
 }
 
-.section > h2{
+.section h2{
     font-size:16px;
 }
 
-.section > p{
+.section p{
     padding:5px 0;
 }
 
 .rounded{
     border-radius:10px;
+}
+
+.header{
+    color:#444;
+    padding:10px;
 }
 
 /* Border color animation */
@@ -195,6 +200,7 @@ body{
         outline-offset:1px;}
 }
 
+/* Using Box Shadow */
 .sample-9{
     box-shadow: 0px 0px 10px 3px #006989;
 
